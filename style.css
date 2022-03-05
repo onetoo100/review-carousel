@@ -1,0 +1,155 @@
+:root {
+    --space: 5rem;
+    --mainFont: 'Roboto', sans-serif;
+    --secondFont: 'Lato', sans-serif;
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: var(--mainFont);
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    font-weight: 900;
+    font-family: var(--secondFont);
+    margin: calc(var(--space) / 2) 0;
+}
+
+img {
+    max-width: 30%;
+    display: block;
+    height: auto;
+}
+
+.container {
+    max-width: 120rem;
+    width: 100%;
+    margin: var(--space) auto;
+    padding: 1rem;
+    background-color: #e3f6f5;
+    border-radius: 10rem;
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 0;
+    font-size: 4rem;
+    color: #272643;
+}
+
+.wrapper {
+    /* Create a grid to position all elements. */
+    display: grid;
+    grid: repeat(7, 9rem) / repeat(9, 1fr);
+    gap: 1rem;
+}
+
+.wrapper .box {
+    margin: 0;
+    border-radius: 2rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box:nth-child(1) {
+    grid-row-start: 7;
+    grid-column-start: 4;
+    z-index: 0;
+}
+
+.box:nth-child(2) {
+    grid-column-start: 4;
+    grid-column-end: 7;
+    grid-row-start: 2;
+    grid-row-end: 4;
+    /* To place the image in the center of the grid. */
+    display: grid;
+}
+
+.box:nth-child(4) {
+    grid-row-start: 7;
+    grid-column-start: 6;
+}
+
+.box:nth-child(1),
+.box:nth-child(4) {
+    /* Center the images (next and prev) */
+    display: flex;
+    flex-direction: grid;
+    align-items: center;
+}
+
+.box:nth-child(5) {
+    height: 7px;
+    background: #556868;
+    grid-column: 5 / 6;
+}
+
+.imagen {
+    height: 20rem;
+    width: 20rem;
+    border-radius: 50%;
+}
+
+.imagen {
+    background-position: center 0;
+    background-repeat: no-repeat;
+    background-size: 100%, 20rem;
+    background-image: linear-gradient(to bottom, transparent 0%, transparent 0%), url(./img/pexels3.jpg);
+    border: 5px solid #2c698d;
+}
+
+@media (min-width: 768px) {
+    .box:nth-child(1) {
+        grid-row-start: 4;
+        grid-column-start: 1;
+    }
+
+    .box:nth-child(4) {
+        grid-row-start: 4;
+        grid-column-start: 9;
+    }
+}
+
+.info {
+    /* Another way to to the same thing. Is the same of:
+        grid-column-start: 2;
+        grid-column-end: 9; */
+    grid-column: 1 / 10;
+    grid-row: 4 / 7;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+}
+
+.info h3 {
+    text-decoration: none;
+    font-size: 3rem;
+    color: #427285;
+    margin-bottom: 0;
+}
+
+.info .job {
+    text-transform: uppercase;
+    font-size: 2rem;
+    margin-top: 0;
+    color: #484643;
+}
+
+.info .comments {
+    text-align: center;
+    font-size: 2rem;
+}
